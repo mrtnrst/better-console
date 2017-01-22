@@ -1,8 +1,8 @@
 {
-  "name": "good-console",
-  "version": "6.2.0",
-  "repository": "git://github.com/hapijs/good-console",
-  "description": "Console broadcasting for Good process monitor",
+  "name": "better-console",
+  "version": "0.0.1",
+  "repository": "git@github.com:mrtnrst/better-console.git",
+  "description": "Console broadcasting for Good process monitor, with reporting",
   "main": "lib/index.js",
   "scripts": {
     "test": "lab -t 100 -vLa code"
