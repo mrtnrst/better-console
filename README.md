@@ -1,4 +1,6 @@
-# good-console
+# better-console
+
+_DISCLAIMER: This project is exactly as the good console with one extra feature, passing payloads into the console._
 
 `good-console` is a transform stream useful for turning [good](https://github.com/hapijs/good) server events into formatted strings.
 
@@ -28,3 +30,33 @@ Below are example outputs for the designated event type:
 - "request" - 160318/013330.957, [request,`event.tags`] data: you made a request
 - "log" - 160318/013330.957, [log,`event.tags`] data: you made a default
 - "response" - 160318/013330.957, [response, `event.tags`] http://localhost:61253: post /data {"name":"adam"} 200 (150ms)
+
+
+## Example
+```js
+const Logging = {
+    register: require('good'),
+    options: {
+        reporters: {
+            console: [{
+                module: 'good-squeeze',
+                name: 'Squeeze',
+                args: [{
+                    log: '*',
+                    request: '*',
+                    error: '*',
+                }],
+            }, {
+                module: 'good-console',
+                args: [{
+                    responsePayload: true,
+                }],
+            }, 'stdout'],
+        },
+        includes: {
+            request: ['payload'],
+            response: ['payload'],
+        },
+    },
+};
+```
