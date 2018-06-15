@@ -5,7 +5,7 @@ _DISCLAIMER: This project is exactly as the good console with one extra feature,
 `good-console` is a transform stream useful for turning [good](https://github.com/hapijs/good) server events into formatted strings.
 
 [![Build Status](https://travis-ci.org/mrtnrst/better-console.svg?branch=master)](https://travis-ci.org/mrtnrst/better-console)
-[![Current Version](https://img.shields.io/npm/v/good-console.svg)](https://www.npmjs.com/package/a-better-console)
+[![Current Version](https://img.shields.io/npm/v/a-better-console.svg)](https://www.npmjs.com/package/a-better-console)
 
 Lead Maintainer: [Martin Arista](https://github.com/mrtnrst)
 
