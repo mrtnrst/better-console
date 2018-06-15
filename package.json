@@ -9,12 +9,12 @@
   },
   "dependencies": {
     "hoek": "4.x.x",
-    "joi": "8.1.x",
+    "joi": "12.x.x",
     "json-stringify-safe": "5.0.x",
-    "moment": "2.19.x"
+    "moment": "2.20.x"
   },
   "devDependencies": {
-    "code": "3.x.x",
+    "code": "4.x.x",
     "lab": "14.x.x"
   },
   "engines": {
