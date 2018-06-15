@@ -95,6 +95,30 @@ internals.responseWithPayload = {
     }
 };
 
+internals.responseWithStringPayload = {
+    event: 'response',
+    timestamp: 1458264810957,
+    id: '1458264811279:localhost:16014:ilx17kv4:10001',
+    instance: 'http://localhost:61253',
+    labels: [],
+    method: 'post',
+    path: '/data',
+    query: {
+        name: 'adam'
+    },
+    responseTime: 150,
+    statusCode: 200,
+    pid: 16014,
+    httpVersion: '1.1',
+    source: {
+        remoteAddress: '127.0.0.1',
+        userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',
+        referer: 'http://localhost:61253/'
+    },
+    requestPayload: 'foo',
+    responsePayload: 'bar'
+};
+
 internals.request = {
     event: 'request',
     timestamp: 1458264810957,
@@ -149,6 +173,23 @@ describe('GoodConsole', () => {
 
                 reader.pipe(reporter).pipe(out);
                 reader.push(internals.response);
+                reader.push(null);
+                reader.once('end', () => {
+
+                    expect(out.data).to.have.length(1);
+                    expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"} \u001b[32m200\u001b[0m (150ms)  \n');
+                    done();
+                });
+            });
+
+            it('returns a formatted string for "response" events with a string requestPayload nad string responsePayload', { plan: 2 }, (done) => {
+
+                const reporter = new GoodConsole({ requestPayload: true, responsePayload: true });
+                const out = new Streams.Writer();
+                const reader = new Streams.Reader();
+
+                reader.pipe(reporter).pipe(out);
+                reader.push(internals.responseWithStringPayload);
                 reader.push(null);
                 reader.once('end', () => {
 
