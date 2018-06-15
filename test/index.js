@@ -165,7 +165,7 @@ describe('GoodConsole', () => {
 
         describe('response events', () => {
 
-            it('returns a formatted string for "response" events', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -178,11 +178,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"} \u001b[32m200\u001b[0m (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with a string requestPayload nad string responsePayload', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with a string requestPayload nad string responsePayload', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole({ requestPayload: true, responsePayload: true });
                 const out = new Streams.Writer();
@@ -195,11 +194,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"} \u001b[32m200\u001b[0m (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with a requestPayload', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with a requestPayload', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole({ requestPayload: true });
                 const out = new Streams.Writer();
@@ -212,11 +210,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {\"name\":\"adam\"} \u001b[32m200\u001b[0m (150ms)  \n Request: {\"foo\":\"bar\"} \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with a responsePayload', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with a responsePayload', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole({ responsePayload: true });
                 const out = new Streams.Writer();
@@ -229,11 +226,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {\"name\":\"adam\"} \u001b[32m200\u001b[0m (150ms)   \n Response: {\"bar\":\"foo\"}\n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with a requestPayload and responsePayload', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with a requestPayload and responsePayload', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole({ requestPayload: true, responsePayload: true });
                 const out = new Streams.Writer();
@@ -246,11 +242,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {\"name\":\"adam\"} \u001b[32m200\u001b[0m (150ms)  \n Request: {\"foo\":\"bar\"}  \n Response: {\"bar\":\"foo\"}\n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events without a query', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events without a query', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -267,11 +262,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data  \u001b[32m200\u001b[0m (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events without a statusCode', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events without a statusCode', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -289,11 +283,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"}  (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events uncolored', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events uncolored', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole({ color: false });
                 const out = new Streams.Writer();
@@ -308,11 +301,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: post /data {"name":"adam"} 200 (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with local time', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with local time', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole({ utc: false });
                 const out = new Streams.Writer();
@@ -332,11 +324,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal(`${date}, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"} \u001b[32m200\u001b[0m (150ms)  \n`);
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with "head" as method', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with "head" as method', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -354,11 +345,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;34mhead\u001b[0m /data {"name":"adam"} \u001b[32m200\u001b[0m (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with "statusCode" 500', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with "statusCode" 500', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -376,11 +366,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"} \u001b[31m599\u001b[0m (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with "statusCode" 400', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with "statusCode" 400', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -398,11 +387,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"} \u001b[33m418\u001b[0m (150ms)  \n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "response" events with "statusCode" 300', { plan: 2 }, (done) => {
+            it('returns a formatted string for "response" events with "statusCode" 300', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -420,14 +408,13 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1458264811279:localhost:16014:ilx17kv4:10001) [response] http://localhost:61253: \u001b[1;33mpost\u001b[0m /data {"name":"adam"} \u001b[36m304\u001b[0m (150ms)  \n');
-                    done();
                 });
             });
         });
 
         describe('ops events', () => {
 
-            it('returns a formatted string for "ops" events', { plan: 2 }, (done) => {
+            it('returns a formatted string for "ops" events', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -444,14 +431,13 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(20);
                     expect(out.data[0]).to.be.equal('160318/013330.957, [ops] memory: 29Mb, uptime (seconds): 6, load: [1.650390625,1.6162109375,1.65234375]\n');
-                    done();
                 });
             });
         });
 
         describe('error events', () => {
 
-            it('returns a formatted string for "error" events', { plan: 2 }, (done) => {
+            it('returns a formatted string for "error" events', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -466,14 +452,13 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1419005623332:new-host.local:48767:i3vrb3z7:10000) [error,user,info] message: Just a simple error, stack: Error: Just a simple Error\n');
-                    done();
                 });
             });
         });
 
         describe('request events', () => {
 
-            it('returns a formatted string for "request" events', { plan: 2 }, (done) => {
+            it('returns a formatted string for "request" events', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -488,14 +473,13 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, (1419005623332:new-host.local:48767:i3vrb3z7:10000) [request,user,info] data: you made a request\n');
-                    done();
                 });
             });
         });
 
         describe('log and default events', () => {
 
-            it('returns a formatted string for "log" and "default" events', { plan: 2 }, (done) => {
+            it('returns a formatted string for "log" and "default" events', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -510,11 +494,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, [request,user,info] data: you made a default\n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "default" events without data', { plan: 2 }, (done) => {
+            it('returns a formatted string for "default" events without data', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -532,11 +515,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, [request,user,info] data: (none)\n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "default" events with data as object', { plan: 2 }, (done) => {
+            it('returns a formatted string for "default" events with data as object', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -554,11 +536,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, [request,user,info] data: {"hello":"world"}\n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "default" events with data as object', { plan: 2 }, (done) => {
+            it('returns a formatted string for "default" events with data as object', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -576,11 +557,10 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0]).to.be.equal('160318/013330.957, [request,test] data: you made a default\n');
-                    done();
                 });
             });
 
-            it('returns a formatted string for "default" events with data as Error', { plan: 2 }, (done) => {
+            it('returns a formatted string for "default" events with data as Error', { plan: 2 }, () => {
 
                 const reporter = new GoodConsole();
                 const out = new Streams.Writer();
@@ -598,7 +578,6 @@ describe('GoodConsole', () => {
 
                     expect(out.data).to.have.length(1);
                     expect(out.data[0].split('\n')[0]).to.be.equal('160318/013330.957, [request,user,info] message: you logged an error, stack: Error: you logged an error');
-                    done();
                 });
             });
         });
